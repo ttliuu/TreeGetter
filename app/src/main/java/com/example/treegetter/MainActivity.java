@@ -27,18 +27,19 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference mTreeRef = mRootRef.child("Tree");
+    DatabaseReference mTreeRef = mRootRef.child("Trees");
     DatabaseReference mSingleTree;
 
     @Override
     protected void onStart() {
         super.onStart();
+        System.out.println("asd");
         mTreeRef.keepSynced(true);
         mTreeRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //Log.e("Count " ,""+dataSnapshot.getChildrenCount());
-                System.out.print(dataSnapshot.toString());
+                System.out.println("asdg" + dataSnapshot.toString());
                 for (DataSnapshot posSnapshot: dataSnapshot.getChildren()) {
                     System.out.print(posSnapshot);
                     mSingleTree = posSnapshot.getRef();
@@ -48,8 +49,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                         public void onDataChange(@NonNull DataSnapshot postSnapshot) {
                             Tree a = new Tree();
                             for(DataSnapshot  ad: postSnapshot.getChildren()) {
+
                                 System.out.println("asdf" + ad.toString());
-                                if (ad.getKey().equals("COURSE::name")) {
+                                if (ad.getKey().equals("Name")) {
                                     a.setType(ad.getValue().toString());
                                     System.out.println("ad value is" + ad.getValue().toString());
                                 } else if (ad.getKey().equals("Latin")) {
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
-        System.out.print(Tree.treeArray.get(0).toString());
+        if(Tree.treeArray.size() > 0)System.out.print(Tree.treeArray.get(0).toString());
     }
 
 

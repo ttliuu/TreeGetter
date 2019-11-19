@@ -3,10 +3,12 @@ package com.example.treegetter;
 import java.util.ArrayList;
 
 public class Tree {
-    double latitude;
-    double longitude;
-    String type,latin,description;
-    public static ArrayList<Tree> treeArray;
+    double latitude = 0.0;
+    double longitude = 0.0;
+    String type = "";
+    String latin = "";
+    String description = "";
+    public static ArrayList<Tree> treeArray = new ArrayList<Tree>();
     public Tree(){};
     public Tree(double latitude, double longitude, String type, String latin, String description) {
         this.latitude = latitude;
