@@ -7,11 +7,11 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class TreeResult extends AppCompatActivity {
-    TextView textLatitude = (TextView)findViewById(R.id.textLatitude);
-    TextView textLongitude = (TextView)findViewById(R.id.textLongitude);
-    TextView textName = (TextView)findViewById(R.id.textName);
-    TextView textLatin = (TextView)findViewById(R.id.textLatin);
-    TextView textDescription = (TextView)findViewById(R.id.textDescription);
+    TextView textLatitude;
+    TextView textLongitude;
+    TextView textName;
+    TextView textLatin;
+    TextView textDescription;
 
 
     @Override
@@ -32,5 +32,10 @@ public class TreeResult extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tree_result);
+        textLatitude = (TextView)findViewById(R.id.textLatitude);
+        textLongitude = (TextView)findViewById(R.id.textLongitude);
+        textName = (TextView)findViewById(R.id.textName);
+        textLatin = (TextView)findViewById(R.id.textLatin);
+        textDescription = (TextView)findViewById(R.id.textDescription);
     }
 }

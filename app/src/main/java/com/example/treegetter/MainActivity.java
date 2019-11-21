@@ -32,8 +32,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     private LocationManager locationManager;
     private Double longitude, latitude;
 
-    EditText latitudeText = (EditText)findViewById(R.id.editText);
-    EditText longitudeText = (EditText)findViewById(R.id.editText2);
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference mTreeRef = mRootRef.child("Trees");
@@ -188,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     public void onSearch(View view){
         Intent myIntent = new Intent(this, TreeResult.class);
-        Tree reference = new Tree(Double.parseDouble(latitudeText.getText().toString()),Double.parseDouble(longitudeText.getText().toString()));
+        Tree reference = new Tree(Double.parseDouble(textView.getText().toString()),Double.parseDouble(textView2.getText().toString()));
         int loc = reference.getNearestTreeLoc(Tree.treeArray);
         myIntent.putExtra("location",loc);
         MainActivity.this.startActivity(myIntent);
