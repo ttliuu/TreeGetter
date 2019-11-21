@@ -68,4 +68,39 @@ public class Tree {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public double getDistance(Tree a){
+        double b = Math.sqrt(Math.pow(this.getLatitude()-a.getLatitude(),2) + Math.pow(this.getLongitude()-a.getLongitude(),2));
+        return b;
+    }
+
+    public Tree getNearestTree(ArrayList<Tree> a){
+        int j = 0;
+        double sDist = this.getDistance(a.get(0));
+        double dist;
+        for(int i = 0; i < a.size(); i++){
+            dist = this.getDistance(a.get(i));
+            if(dist < sDist) {
+                j = i;
+                sDist = dist;
+            }
+        }
+        return a.get(j);
+    }
+
+    public int getNearestTreeLoc(ArrayList<Tree> a){
+        int j = 0;
+        double sDist = this.getDistance(a.get(0));
+        double dist;
+        for(int i = 0; i < a.size(); i++){
+            dist = this.getDistance(a.get(i));
+            if(dist < sDist) {
+                j = i;
+                sDist = dist;
+            }
+        }
+        return j;
+    }
+
+
 }
