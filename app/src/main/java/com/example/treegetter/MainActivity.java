@@ -58,16 +58,16 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                             for(DataSnapshot  ad: postSnapshot.getChildren()) {
 
                                 System.out.println("asdf" + ad.toString());
-                                if (ad.getKey().equals("Name")) {
+                                if (ad.getKey().equalsIgnoreCase("Name")) {
                                     a.setType(ad.getValue().toString());
                                     System.out.println("ad value is" + ad.getValue().toString());
-                                } else if (ad.getKey().equals("Latin")) {
+                                } else if (ad.getKey().equalsIgnoreCase("Latin")) {
                                     a.setLatin(ad.getValue().toString());
-                                } else if (ad.getKey().equals("Longitude")) {
+                                } else if (ad.getKey().equalsIgnoreCase("Longitude")) {
                                     a.setLongitude(Double.parseDouble(ad.getValue().toString()));
-                                } else if (ad.getKey().equals("Latitude")) {
+                                } else if (ad.getKey().equalsIgnoreCase("Latitude")) {
                                     a.setLatitude(Double.parseDouble(ad.getValue().toString()));
-                                } else if (ad.getKey().equals("Description")) {
+                                } else if (ad.getKey().equalsIgnoreCase("Description")) {
                                     a.setDescription(ad.getValue().toString());
                                 }
                             }
