@@ -17,6 +17,11 @@ public class Tree {
         this.latin = latin;
         this.description = description;
     }
+    public Tree(double latitude,double longitude)
+    {
+        this.latitude =latitude;
+        this.longitude = longitude;
+    }
 
     @Override
     public String toString() {
